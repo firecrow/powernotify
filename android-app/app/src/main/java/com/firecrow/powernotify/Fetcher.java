@@ -12,7 +12,7 @@ public class Fetcher {
     static boolean initialized = false;
     static HashMap<String, ApplicationInfo> apps = null;
     public static void Init(Context ctx) {
-        PackageManager pm = ctx.getPackageManager();
+        pm = ctx.getPackageManager();
         Fetcher.initialized = true;
     }
 
@@ -22,7 +22,9 @@ public class Fetcher {
 
         for(int i = 0, l = list.size(); i < l; i++) {
             ApplicationInfo info = list.get(i);
-            data.put(info.packageName, info);
+            if(pm.getLaunchIntentForPackage(info.packageName) != null) {
+                data.put(info.packageName, info);
+            }
         }
 
         apps = data;
