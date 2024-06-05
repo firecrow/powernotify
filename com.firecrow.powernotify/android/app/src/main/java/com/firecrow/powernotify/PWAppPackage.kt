@@ -1,4 +1,4 @@
-package com.your-app-name // replace your-app-name with your app’s name
+package com.firecrow.powernotify // replace your-app-name with your app’s name
 
 import android.view.View
 import com.facebook.react.ReactPackage

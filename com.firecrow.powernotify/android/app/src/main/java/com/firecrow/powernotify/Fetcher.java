@@ -4,20 +4,19 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 
-import java.util.HashMap;
 import java.util.List;
 
 public class Fetcher {
     static PackageManager pm = null;
     static boolean initialized = false;
-    static HashMap<String, ApplicationInfo> apps = null;
+    static MutableMap<String, ApplicationInfo> apps = null;
     public static void Init(Context ctx) {
         pm = ctx.getPackageManager();
         Fetcher.initialized = true;
     }
 
     public static void GatherApps() {
-        HashMap<String, ApplicationInfo> data = new HashMap<String, ApplicationInfo>();
+        MutableMap<String, ApplicationInfo> data = new HashMap<String, ApplicationInfo>();
         List<ApplicationInfo> list = pm.getInstalledApplications(PackageManager.GET_META_DATA);
 
         for(int i = 0, l = list.size(); i < l; i++) {
@@ -30,7 +29,7 @@ public class Fetcher {
         apps = data;
     }
 
-    public static HashMap<String, ApplicationInfo> GetApps(){
+    public static MutableMap<String, ApplicationInfo> GetApps(){
         if(!initialized){
             return null;
         }
