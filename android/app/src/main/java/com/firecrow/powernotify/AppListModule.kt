@@ -14,7 +14,8 @@ class AppListModule(reactContext: ReactApplicationContext) : ReactContextBaseJav
     override fun getName() = "AppListModule"
     @ReactMethod fun getApps(callback: Callback) {
         Log.d("fcrow", "getApps called")
-        val apps = toMutableMap<String, ApplicationInfo>(Fetcher.GetApps())
-        callback.invoke(apps)
+        //val apps = toMutableMap<String, ApplicationInfo>(Fetcher.GetApps())
+        val value = true
+        callback.invoke(value)
     }
 }
