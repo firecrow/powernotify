@@ -5,18 +5,19 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 
 import java.util.List;
+import java.util.HashMap;
 
 public class Fetcher {
     static PackageManager pm = null;
     static boolean initialized = false;
-    static MutableMap<String, ApplicationInfo> apps = null;
+    static HashMap<String, ApplicationInfo> apps = null;
     public static void Init(Context ctx) {
         pm = ctx.getPackageManager();
         Fetcher.initialized = true;
     }
 
     public static void GatherApps() {
-        MutableMap<String, ApplicationInfo> data = new HashMap<String, ApplicationInfo>();
+        HashMap<String, ApplicationInfo> data = new HashMap<String, ApplicationInfo>();
         List<ApplicationInfo> list = pm.getInstalledApplications(PackageManager.GET_META_DATA);
 
         for(int i = 0, l = list.size(); i < l; i++) {
@@ -29,7 +30,7 @@ public class Fetcher {
         apps = data;
     }
 
-    public static MutableMap<String, ApplicationInfo> GetApps(){
+    public static HashMap<String, ApplicationInfo> GetApps(){
         if(!initialized){
             return null;
         }

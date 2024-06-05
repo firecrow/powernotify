@@ -8,11 +8,13 @@ import com.facebook.react.bridge.ReactMethod
 import com.facebook.react.bridge.Callback
 import android.util.Log
 
+import android.content.pm.ApplicationInfo;
+
 class AppListModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
     override fun getName() = "AppListModule"
     @ReactMethod fun getApps(callback: Callback) {
         Log.d("fcrow", "getApps called")
-        val apps = Fetcher.GetApps()
+        val apps = toMutableMap<String, ApplicationInfo>(Fetcher.GetApps())
         callback.invoke(apps)
     }
 }
