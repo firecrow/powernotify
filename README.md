@@ -1,14 +1,19 @@
 # PowerNotify
 
-This is an Android app using ReactNative and Kotlin native code to provide a "super" notification, to help mangage time-away from your device, as well as surface important notifications.
+This is an Android app that provides a "super" notification using ReactNative and Kotlin/Java native, to help mangage time-away from your device, as well as surface important notifications, acording to user-specified rules.
 
 # The Concept
 
-PowerNotify can see the notifications that are visible in the toolbar, and make sound or vibration according to specified rules. It is then possible to disable this for the normal notifications, and manage when the get your attention through PowerNotify.
+PowerNotify can see the notifications that are visible in the toolbar, and make sound or vibration according to specified rules. It is then possible to disable noise/vibration for the normal notifications, allowing PowerNotify to buzz you acording to the rules you've set for that app, your current location, or the current time of the day.
 
 # The Rules
 
-When a notification is added to the list shown in the "super" notification, it can generate noise/vibration only for certain recipients, or when you are in certain geo-locations, or during certain times. This lets you only be bothered by social media when you are not a the office. Alerted to work when you are in the office. Or only get your attention on the hour, every hour, allowing you to take much needed "head space" without getting interrupted while you are on a date.
+Rules can be composed of the following attributes:
+    - the app the originated from
+    - the contact information contained in the notification
+    - the phones current geo-location
+    - the current time of day
+    - or what I call "snooze-oclock", make noise/vibration only on the hour every hour!
 
 # Code Organization
 
